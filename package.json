@@ -1,0 +1,44 @@
+{
+  "name": "nextjs-todo-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "start:dev": "docker-compose up -d && sleep 3 && npm run migration:run && npm run seed && npm run dev",
+    "lint": "next lint",
+    "typeorm": "node --require @swc-node/register ./node_modules/typeorm/cli.js -d src/lib/db/data-source.ts",
+    "migration:generate": "npm run typeorm -- migration:generate",
+    "migration:run": "npm run typeorm -- migration:run",
+    "migration:revert": "npm run typeorm -- migration:revert",
+    "seed": "node --require @swc-node/register src/lib/db/seed.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "date-fns": "^3.6.0",
+    "next": "^14.2.0",
+    "next-auth": "^4.24.0",
+    "pg": "^8.11.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "reflect-metadata": "^0.2.0",
+    "typeorm": "^0.3.20",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@swc-node/register": "^1.11.1",
+    "@swc/core": "^1.15.8",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.12.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.1.1",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.4.0"
+  }
+}
