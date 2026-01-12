@@ -1,5 +1,6 @@
 "use client";
 
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { format } from "date-fns";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
@@ -115,8 +116,9 @@ export default function ProfilePage() {
 
   if (status === "loading" || isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg">Loading...</div>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+        <LoadingSpinner size="lg" />
+        <p className="text-lg text-gray-600">Loading profile...</p>
       </div>
     );
   }

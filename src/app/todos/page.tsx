@@ -1,5 +1,6 @@
 "use client";
 
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { Todo } from "@/entities/Todo";
 import { PaginatedResponse, TodoPriority, TodoStatus } from "@/types";
 import { format } from "date-fns";
@@ -131,8 +132,9 @@ export default function TodosPage() {
 
   if (status === "loading" || initialLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg">Loading...</div>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+        <LoadingSpinner size="lg" />
+        <p className="text-lg text-gray-600">Loading your todos...</p>
       </div>
     );
   }
@@ -178,7 +180,7 @@ export default function TodosPage() {
           <div className="bg-white shadow rounded-lg p-4 mb-6 relative">
             {isLoading && (
               <div className="absolute top-2 right-2">
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary-600"></div>
+                <LoadingSpinner size="sm" />
               </div>
             )}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">

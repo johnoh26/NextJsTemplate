@@ -22,6 +22,16 @@ const config: Config = {
           900: "#1e3a8a",
         },
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+        "spin-reverse": "spin-reverse 3s linear infinite",
+      },
+      keyframes: {
+        "spin-reverse": {
+          from: { transform: "rotate(360deg)" },
+          to: { transform: "rotate(0deg)" },
+        },
+      },
     },
   },
   plugins: [],

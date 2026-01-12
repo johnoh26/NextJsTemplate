@@ -1,5 +1,6 @@
 "use client";
 
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { Todo } from "@/entities/Todo";
 import { TodoPriority, TodoStatus } from "@/types";
 import { format } from "date-fns";
@@ -123,8 +124,9 @@ export default function TodoDetailPage() {
 
   if (status === "loading" || isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg">Loading...</div>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+        <LoadingSpinner size="lg" />
+        <p className="text-lg text-gray-600">Loading todo...</p>
       </div>
     );
   }
