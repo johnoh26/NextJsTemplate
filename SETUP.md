@@ -1,6 +1,6 @@
 # Quick Setup Guide
 
-Follow these steps to get your Next.js Todo App up and running.
+Follow these steps to get your Next.js Full-Stack Template up and running.
 
 ## 1. Install Dependencies
 
@@ -52,6 +52,25 @@ npm run dev
 
 Visit: http://localhost:3000
 
+## 🌐 Exploring the Application
+
+### Marketing Site (Public Access)
+
+- **Landing Page** (`/`) - Corporate homepage with hero section
+- **Products** (`/products`) - Product features and pricing
+- **About Us** (`/about`) - Company story and team
+- **Careers** (`/careers`) - Job board with filtering
+- **Contact** (`/contact`) - Contact form
+
+### Todo Application (Requires Login)
+
+- **Todo List** (`/todos`) - View, search, filter, and manage todos
+- **Create Todo** (`/todos/new`) - Add new tasks
+- **Todo Details** (`/todos/[id]`) - View and edit individual todos
+- **Profile** (`/profile`) - Manage your account
+
+Login using the seeded credentials to access the todo application.
+
 ## Next Steps
 
 ### Configure Google OAuth (Optional)
@@ -82,9 +101,21 @@ Update \`src/app/api/auth/reset-password/route.ts\` to integrate with your email
 - \`npm run build\` - Build for production
 - \`npm run start\` - Start production server
 - \`npm run migration:run\` - Run database migrations
-- \`npm run seed\` - Seed database with sample data
-- \`docker-compose up -d\` - Start PostgreSQL
-- \`docker-compose down\` - Stop PostgreSQL
+- `npm run migration:revert` - Revert last migration
+- `npm run seed` - Seed database with sample data
+- `docker-compose up -d` - Start PostgreSQL
+- `docker-compose down` - Stop PostgreSQL
+
+## 📚 Additional Documentation
+
+For more detailed information, check out these guides:
+
+- **[README.md](README.md)** - Complete project overview and features
+- **[API.md](API.md)** - Detailed API endpoint documentation
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture and design
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment guide
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute to the project
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and updates
 
 ## Troubleshooting
 

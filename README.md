@@ -1,6 +1,6 @@
-# 📝 Next.js Todo App Template
+# � Next.js Full-Stack Template
 
-> A production-ready, full-stack todo application with authentication, role-based access control, and comprehensive task management features.
+> A production-ready, full-stack template featuring a corporate marketing site and a comprehensive todo application with authentication, role-based access control, and advanced task management.
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue?style=flat-square&logo=typescript)
@@ -30,7 +30,7 @@ npm run seed
 npm run dev
 ```
 
-**That's it!** 🎉 Open [http://localhost:3000](http://localhost:3000) and start using the app.
+**That's it!** 🎉 Open [http://localhost:3000](http://localhost:3000) to see the landing page.
 
 ### 🔑 Test Credentials (After Seeding)
 
@@ -39,6 +39,15 @@ npm run dev
 | Admin | admin@example.com | admin123 |
 | User  | john@example.com  | user123  |
 | User  | jane@example.com  | user123  |
+
+### 🌐 Pages Overview
+
+- **Landing Page** (`/`) - Corporate homepage with hero section, features, and stats
+- **Products** (`/products`) - Product showcase with pricing tiers
+- **About** (`/about`) - Company story, values, and team
+- **Careers** (`/careers`) - Job board with filtering and pagination
+- **Contact** (`/contact`) - Contact form with inquiry types
+- **Todo App** (`/todos`) - Full-featured task management (requires login)
 
 ---
 
@@ -49,14 +58,29 @@ npm run dev
 - [Detailed Setup Guide](#-detailed-setup-guide)
 - [Project Structure](#-project-structure)
 - [Features Deep Dive](#-features-deep-dive)
+- [Tech Stack](#-tech-stack)
 - [API Documentation](#-api-documentation)
 - [Configuration](#-configuration)
 - [Troubleshooting](#-troubleshooting)
 - [Deployment](#-deployment)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
 ## ✨ What's Inside
+
+### Corporate Marketing Site 🌐
+
+- ✅ Modern landing page with hero section, features, and stats
+- ✅ Product showcase with pricing tiers (Basic, Professional, Enterprise)
+- ✅ About Us page with company story, values, and team profiles
+- ✅ Careers page with job listings, department/city filtering, and pagination
+- ✅ Contact form with multiple inquiry types
+- ✅ Responsive marketing navbar with mobile menu
+- ✅ Professional footer with multiple sections
+- ✅ Smooth transitions and modern design
 
 ### Authentication & Security 🔐
 
@@ -66,30 +90,37 @@ npm run dev
 - ✅ Role-based access control (Admin & User roles)
 - ✅ Protected routes and API endpoints
 - ✅ CSRF protection and SQL injection prevention
+- ✅ Context-aware navigation (shared header across app pages)
 
 ### Todo Management 📋
 
 - ✅ Full CRUD operations for todos
-- ✅ Real-time search by title
+- ✅ Debounced search by title (500ms delay for better performance)
 - ✅ Advanced filtering (status, priority)
 - ✅ Multi-criteria sorting (date, status, priority)
 - ✅ Flexible pagination (10, 20, or 50 items per page)
 - ✅ Rich todo data (title, description, status, priority, due date)
+- ✅ Individual todo detail pages
 
 ### User Experience 👥
 
 - ✅ Responsive design with Tailwind CSS
 - ✅ User profile management
 - ✅ Intuitive UI with loading states and error handling
+- ✅ Custom loading spinner component
+- ✅ Animated 404 error page
+- ✅ Shared navigation header across authenticated pages
 - ✅ Toast notifications for actions
 
 ### Developer Experience 🛠️
 
 - ✅ TypeScript for type safety
-- ✅ TypeORM for database management
+- ✅ TypeORM for database management with direct imports (Next.js compatible)
 - ✅ Database migrations and seeding
 - ✅ API route validation with Zod
 - ✅ Comprehensive error handling
+- ✅ Modular component architecture
+- ✅ Separation of marketing and application pages
 
 ---
 
@@ -261,16 +292,29 @@ NextJsTemplate/
 │   │   │   │   └── reset-password/ # Password reset
 │   │   │   ├── 📂 todos/           # Todo CRUD operations
 │   │   │   └── 📂 users/           # User management
+│   │   ├── 📂 about/               # About Us page
+│   │   ├── 📂 careers/             # Careers/Jobs page
+│   │   ├── 📂 contact/             # Contact form page
+│   │   ├── 📂 products/            # Products showcase page
 │   │   ├── 📂 login/               # Login page
 │   │   ├── 📂 signup/              # Registration page
 │   │   ├── 📂 reset-password/      # Password reset page
 │   │   ├── 📂 todos/               # Todo list & detail pages
+│   │   │   ├── 📂 [id]/           # Individual todo detail
+│   │   │   ├── 📂 new/            # Create new todo
+│   │   │   └── page.tsx           # Todo list with search/filter
 │   │   ├── 📂 profile/             # User profile page
 │   │   ├── layout.tsx              # Root layout with providers
-│   │   ├── page.tsx                # Home page (redirects to /todos)
+│   │   ├── page.tsx                # Landing page (corporate homepage)
+│   │   ├── not-found.tsx           # Custom 404 page
 │   │   └── globals.css             # Global styles
 │   ├── 📂 components/              # React components
-│   │   └── Providers.tsx           # Session provider wrapper
+│   │   ├── 📂 marketing/          # Marketing site components
+│   │   │   ├── Navbar.tsx         # Marketing navigation
+│   │   │   └── Footer.tsx         # Marketing footer
+│   │   ├── AppHeader.tsx          # Shared app navigation header
+│   │   ├── LoadingSpinner.tsx     # Reusable loading component
+│   │   └── Providers.tsx          # Session provider wrapper
 │   ├── 📂 entities/                # TypeORM database entities
 │   │   ├── User.ts                 # User entity with relations
 │   │   └── Todo.ts                 # Todo entity with relations
@@ -280,7 +324,7 @@ NextJsTemplate/
 │   │   │   ├── password.ts        # Password hashing utilities
 │   │   │   └── session.ts         # Session helpers
 │   │   └── 📂 db/                 # Database configuration
-│   │       ├── data-source.ts     # TypeORM data source
+│   │       ├── data-source.ts     # TypeORM data source (direct imports)
 │   │       ├── seed.ts            # Database seeding script
 │   │       └── 📂 migrations/     # Database migrations
 │   ├── 📂 types/                   # TypeScript definitions
@@ -292,14 +336,52 @@ NextJsTemplate/
 ├── 📄 docker-compose.yml           # PostgreSQL container config
 ├── 📄 package.json                 # Dependencies and scripts
 ├── 📄 tsconfig.json                # TypeScript configuration
+├── 📄 tsconfig.typeorm.json        # TypeORM TypeScript config
 ├── 📄 next.config.js               # Next.js configuration
 ├── 📄 tailwind.config.ts           # Tailwind CSS configuration
-└── 📄 README.md                    # You are here!
+├── 📄 README.md                    # This file
+└── 📄 SETUP.md                     # Quick setup guide
 ```
 
 ---
 
 ## 🎨 Features Deep Dive
+
+### Marketing Site
+
+**Landing Page**
+
+- Hero section with gradient backgrounds and call-to-action buttons
+- Feature showcase with icons and descriptions
+- Statistics section displaying company metrics
+- Request Demo and Login buttons
+
+**Products Page**
+
+- Product features grid with modern card design
+- Three pricing tiers (Basic, Professional, Enterprise)
+- Feature comparison across plans
+
+**About Us Page**
+
+- Company story and mission statement
+- Core values showcase
+- Team profiles with placeholder avatars
+- Professional layout with consistent branding
+
+**Careers Page**
+
+- 22+ job listings across multiple departments
+- Filter by city (San Francisco, New York, Remote, Austin, Seattle)
+- Filter by department (Engineering, Product, Design, Marketing, Sales, Operations)
+- Pagination with 10, 20, or 50 jobs per page
+- Job details including location, type, and application CTA
+
+**Contact Page**
+
+- Multi-field contact form
+- Inquiry type selection (General, Sales, Support, Partnerships)
+- Professional layout with form validation
 
 ### Authentication Flow
 
@@ -319,9 +401,10 @@ NextJsTemplate/
 **View & Search**
 
 - List view with pagination
-- Search by title (real-time)
+- Debounced search by title (500ms delay for optimal performance)
 - Filter by status and priority
 - Sort by multiple criteria
+- Loading states with custom spinner
 
 **Update Todos**
 
@@ -333,6 +416,28 @@ NextJsTemplate/
 
 - Confirmation dialog before deletion
 - Cascade deletion (removes user's todos when user is deleted)
+
+### Shared Components
+
+**AppHeader**
+
+- Consistent navigation across all authenticated pages
+- Context-aware navigation (hides current page link)
+- TaskFlow branding with clickable link to todos
+- User profile link and sign out button
+- Displays current user's name
+
+**LoadingSpinner**
+
+- Reusable loading indicator
+- Three sizes: small, medium, large
+- Used across todos, profile, and form pages
+
+**404 Page**
+
+- Custom animated error page
+- Orbiting circle animations
+- Back to home navigation
 
 ### Role-Based Access Control
 
@@ -807,9 +912,11 @@ npm run seed
 
 ## 🚢 Deployment
 
-### Deploy to Vercel (Recommended)
+For comprehensive deployment instructions, see our detailed **[Deployment Guide](DEPLOYMENT.md)**.
 
-Vercel is the easiest way to deploy Next.js applications.
+### Quick Deploy to Vercel (Recommended)
+
+Vercel provides the easiest deployment for Next.js applications.
 
 1. **Push to GitHub**
 
@@ -817,107 +924,34 @@ Vercel is the easiest way to deploy Next.js applications.
    git init
    git add .
    git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/your-repo.git
    git push -u origin main
    ```
 
 2. **Import to Vercel**
 
-   - Go to [vercel.com](https://vercel.com)
-   - Click "New Project"
-   - Import your GitHub repository
+   - Visit [vercel.com](https://vercel.com)
+   - Click "New Project" and import your repository
+   - Vercel auto-detects Next.js settings
 
-3. **Configure Environment Variables**
-   Add these in Vercel project settings:
+3. **Add Environment Variables**
 
-   ```bash
-   DATABASE_URL=your-production-database-url
-   NEXTAUTH_SECRET=your-production-secret
-   NEXTAUTH_URL=https://your-domain.vercel.app
-   GOOGLE_CLIENT_ID=your-google-client-id
-   GOOGLE_CLIENT_SECRET=your-google-client-secret
+   ```
+   DATABASE_URL=<your-production-database>
+   NEXTAUTH_SECRET=<generate-with-openssl-rand>
+   NEXTAUTH_URL=https://your-app.vercel.app
    ```
 
-4. **Set up PostgreSQL**
-
-   - Use [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
-   - Or [Neon](https://neon.tech/)
-   - Or [Supabase](https://supabase.com/)
-   - Update `DATABASE_URL` with the connection string
-
-5. **Run Migrations**
-   After deployment, run migrations manually or set up a deployment script
-
-6. **Deploy**
+4. **Deploy**
    - Click "Deploy"
-   - Your app will be live at `https://your-project.vercel.app`
+   - Run migrations after first deploy
 
-### Deploy to AWS, DigitalOcean, or VPS
+**Other Deployment Options:**
 
-<details>
-<summary><strong>☁️ Manual deployment guide</strong></summary>
+- Railway - [See Guide](DEPLOYMENT.md#option-2-railway)
+- Docker + VPS - [See Guide](DEPLOYMENT.md#option-3-docker--vps)
+- AWS/DigitalOcean - [See Guide](DEPLOYMENT.md)
 
-1. **Set up PostgreSQL database**
-
-   - Use AWS RDS, DigitalOcean Managed Database, or self-hosted PostgreSQL
-   - Note the connection string
-
-2. **Configure environment variables**
-   Create `.env.production`:
-
-   ```bash
-   DATABASE_URL=your-production-db-url
-   NEXTAUTH_SECRET=your-production-secret
-   NEXTAUTH_URL=https://yourdomain.com
-   NODE_ENV=production
-   ```
-
-3. **Build the application**
-
-   ```bash
-   npm run build
-   ```
-
-4. **Start the application**
-
-   ```bash
-   npm start
-   ```
-
-5. **Use a process manager** (recommended)
-
-   ```bash
-   # Install PM2
-   npm install -g pm2
-
-   # Start with PM2
-   pm2 start npm --name "todo-app" -- start
-
-   # Set up auto-restart on reboot
-   pm2 startup
-   pm2 save
-   ```
-
-6. **Set up reverse proxy** (Nginx example)
-
-   ```nginx
-   server {
-       listen 80;
-       server_name yourdomain.com;
-
-       location / {
-           proxy_pass http://localhost:3000;
-           proxy_http_version 1.1;
-           proxy_set_header Upgrade $http_upgrade;
-           proxy_set_header Connection 'upgrade';
-           proxy_set_header Host $host;
-           proxy_cache_bypass $http_upgrade;
-       }
-   }
-   ```
-
-</details>
+For detailed instructions, troubleshooting, and production checklist, see **[DEPLOYMENT.md](DEPLOYMENT.md)**.
 
 ---
 
@@ -964,7 +998,17 @@ Vercel is the easiest way to deploy Next.js applications.
 
 ## 📚 Additional Resources
 
-### Documentation
+### Project Documentation
+
+This project includes comprehensive documentation:
+
+- **[SETUP.md](SETUP.md)** - Quick setup guide for getting started
+- **[API.md](API.md)** - Complete API endpoint documentation
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture and design decisions
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Guidelines for contributing to the project
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and release notes
+
+### External Documentation
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [NextAuth.js Guide](https://next-auth.js.org/getting-started/introduction)
@@ -981,13 +1025,17 @@ Vercel is the easiest way to deploy Next.js applications.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
+
+### Quick Contributing Steps
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+For detailed guidelines, code style, and development workflow, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 

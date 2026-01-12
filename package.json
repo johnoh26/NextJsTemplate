@@ -1,6 +1,7 @@
 {
-  "name": "nextjs-todo-template",
-  "version": "0.1.0",
+  "name": "nextjs-fullstack-template",
+  "version": "1.0.0",
+  "description": "A production-ready Next.js template with corporate marketing site and full-stack todo application featuring authentication, TypeORM, PostgreSQL, and Tailwind CSS",
   "private": true,
   "scripts": {
     "dev": "next dev",
