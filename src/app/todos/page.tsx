@@ -1,5 +1,6 @@
 "use client";
 
+import AppHeader from "@/components/AppHeader";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { Todo } from "@/entities/Todo";
 import { PaginatedResponse, TodoPriority, TodoStatus } from "@/types";
@@ -145,24 +146,7 @@ export default function TodosPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <h1 className="text-xl font-bold">Todo App</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/profile"
-                className="text-gray-700 hover:text-gray-900"
-              >
-                Profile
-              </Link>
-              <span className="text-gray-500">{session.user.name}</span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <AppHeader />
 
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">

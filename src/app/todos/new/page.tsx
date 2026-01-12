@@ -1,5 +1,6 @@
 "use client";
 
+import AppHeader from "@/components/AppHeader";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { TodoPriority, TodoStatus } from "@/types";
 import { useSession } from "next-auth/react";
@@ -73,26 +74,7 @@ export default function NewTodoPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <h1 className="text-xl font-bold">Todo App</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link href="/todos" className="text-gray-700 hover:text-gray-900">
-                My Todos
-              </Link>
-              <Link
-                href="/profile"
-                className="text-gray-700 hover:text-gray-900"
-              >
-                Profile
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <AppHeader />
 
       <div className="max-w-3xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
